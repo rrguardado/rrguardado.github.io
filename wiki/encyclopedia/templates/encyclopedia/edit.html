@@ -1,0 +1,21 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    TITLE - EDITING {{ editWikiPageTitle }}
+{% endblock %}
+
+{% block body %} 
+<h1>Edit wiki page</h1>
+<form action="{% url 'wikiAppName:editWiki' editWikiPageTitle %}" method="post">
+    {% csrf_token %}
+    <div class="theText">   
+        <textarea name="myTextArea">
+            {{ taBody }}
+        </textarea>                 
+    </div>
+
+ 
+    <div></div>
+    <input type="submit">
+</form>
+{% endblock %}
